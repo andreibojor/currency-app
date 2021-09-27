@@ -1,0 +1,65 @@
+.card-container {
+  width: 25%;
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    width: 100%;
+  }
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em;
+  background-color: #d0f3ff;
+  border-radius: 0.625rem;
+  margin: 5px 10px;
+  position: relative;
+  -webkit-box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);
+          box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);
+}
+
+.card .card__nav {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.card__currency {
+  margin-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.card__currency img {
+  max-width: 60px;
+}
+
+.card__symbol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.card__symbol h3 {
+  margin: 8px 5px;
+}
+
+.card__info {
+  margin: 8px 0;
+}
+
+.card__input {
+  padding: 4px 0;
+}
+/*# sourceMappingURL=card.css.map */
