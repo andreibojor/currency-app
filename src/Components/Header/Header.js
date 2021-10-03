@@ -13,7 +13,7 @@ function Header() {
   }
   return (
     <header>
-      <h1>Currency Exchange</h1>
+      <h1>Currency Cards</h1>
       <h1>{getDate()}</h1>
     </header>
   );

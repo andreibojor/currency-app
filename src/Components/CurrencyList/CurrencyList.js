@@ -1,19 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { CardsContext } from "../../Context/CardsContext";
 import "./styles/currencyList.css";
 
 function CurrencyList() {
-  const { allCurrencies, setAllCurrencies, cards, setCards } =
-    useContext(CardsContext);
+  const { allCurrencies, cards, setCards, addCard } = useContext(CardsContext);
 
   const [listToggler, setListToggler] = useState(false);
 
   function handleClick() {
     setListToggler(!listToggler);
-  }
-
-  function addCard(currency) {
-    setCards((prevItems) => [...prevItems, currency]);
   }
 
   return (

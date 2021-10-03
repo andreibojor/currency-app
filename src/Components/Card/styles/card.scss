@@ -1,26 +1,26 @@
 .card-container {
   width: 25%;
+  position: relative;
 
   @media (max-width: 480px) {
     width: 100%;
+  }
+
+  .card__nav {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    cursor: pointer;
   }
 }
 
 .card {
   display: flex;
   padding: 1em;
-  background-color: rgb(208, 243, 255);
+  background-color: #fff;
   border-radius: 0.625rem;
   margin: 5px 10px;
-  position: relative;
   box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);
-
-  .card__nav {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    cursor: pointer;
-  }
 
   &__currency {
     margin-right: 5px;
@@ -47,5 +47,14 @@
 
   &__input {
     padding: 4px 0;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
+}
+
+.base-currency {
+  background-color: lightskyblue;
 }
