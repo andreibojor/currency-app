@@ -6,7 +6,6 @@ function CurrencyList() {
   const { allCurrencies, cards, setCards, addCard } = useContext(CardsContext);
 
   const [listToggler, setListToggler] = useState(false);
-  const [smth, setSmth] = useState([]);
   function handleClick() {
     setListToggler(!listToggler);
   }
