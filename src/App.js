@@ -5,10 +5,10 @@ import { CardsContext } from "./Context/CardsContext";
 
 function App() {
   //add cards
-  const { cards, baseCurrency, setBaseCurrency, allCurrencies } =
-    useContext(CardsContext);
+  const { cards, baseCurrency, setBaseCurrency } = useContext(CardsContext);
 
   const [rates, setRates] = useState([]);
+  const [value, setValue] = useState();
 
   useEffect(() => {
     const url = `http://api.exchangeratesapi.io/v1/latest?access_key=ec7c12ccdfee679ebb35f7f4681c64dc&base=${baseCurrency}`;
@@ -27,12 +27,17 @@ function App() {
     fetchBase();
   }, [baseCurrency]);
 
-  function handleBaseCurrency(item) {
-    setBaseCurrency(item);
+  //select a base currency by clicking the card
+  // function handleBaseCurrency(item) {
+  //   setBaseCurrency(item);
+  // }
+
+  function calculateRate(e) {
+    setValue(e.target.value);
   }
 
   return (
-    <>
+    <div className="main">
       <Header />
 
       <div className="cards-container">
@@ -41,9 +46,11 @@ function App() {
             <Card
               key={item[0]}
               currency={item}
-              onClick={() => handleBaseCurrency(item[0])}
+              // onClick={() => handleBaseCurrency(item[0])}
               fromCurrency={baseCurrency}
               rate={rates[item[0]]}
+              changeFunction={calculateRate}
+              value={value}
             />
           ))
         ) : (
@@ -51,7 +58,7 @@ function App() {
         )}
       </div>
       <CurrencyList />
-    </>
+    </div>
   );
 }
 

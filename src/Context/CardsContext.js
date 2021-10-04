@@ -4,7 +4,6 @@ const CardsContext = createContext({});
 
 function ContextProvider({ children }) {
   const [cards, setCards] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [allCurrencies, setAllCurrencies] = useState([]);
   const [baseCurrency, setBaseCurrency] = useState("EUR");
 
@@ -14,11 +13,9 @@ function ContextProvider({ children }) {
 
     const fetchData = async () => {
       try {
-        setIsLoading(true);
         const response = await fetch(url);
         const json = await response.json();
         setAllCurrencies(json.symbols);
-        setIsLoading(false);
       } catch (error) {
         console.log("error", error);
       }

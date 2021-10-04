@@ -2,7 +2,7 @@
   width: 350px;
   max-height: 500px;
   position: absolute;
-  top: 20%;
+  top: 100px;
   left: 50%;
   -webkit-transform: translateX(-163px);
           transform: translateX(-163px);

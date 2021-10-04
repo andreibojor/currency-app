@@ -5,4 +5,9 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+
+.main {
+  height: 100vh;
+  position: relative;
+}
 /*# sourceMappingURL=app.css.map */

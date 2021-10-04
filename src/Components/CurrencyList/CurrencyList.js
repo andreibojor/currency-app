@@ -3,7 +3,7 @@ import { CardsContext } from "../../Context/CardsContext";
 import "./styles/currencyList.css";
 
 function CurrencyList() {
-  const { allCurrencies, cards, setCards, addCard } = useContext(CardsContext);
+  const { allCurrencies, cards, addCard } = useContext(CardsContext);
 
   const [listToggler, setListToggler] = useState(false);
   function handleClick() {

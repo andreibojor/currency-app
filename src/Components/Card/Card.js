@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { CardsContext } from "../../Context/CardsContext";
 import "./styles/card.css";
 
-function Card({ onClick, currency, fromCurrency, rate }) {
-  const { setCards, cards, baseCurrency } = useContext(CardsContext);
-
-  const [value, setValue] = useState();
-  const [symbol, setSymbol] = useState();
-
-  function calculateRate(e) {
-    setValue(e.target.value * rate);
-  }
+function Card({
+  onClick,
+  currency,
+  fromCurrency,
+  rate,
+  changeFunction,
+  value,
+}) {
+  const { setCards, baseCurrency } = useContext(CardsContext);
 
   function removeCard(curr) {
     setCards((prevItems) => prevItems.filter((item) => item[0] !== curr[0]));
@@ -29,14 +29,14 @@ function Card({ onClick, currency, fromCurrency, rate }) {
           <img src="./American.png" alt="Currency" />
         </div>
         <div className="card__symbol">
-          <h3>{symbol}</h3>
+          <h3>??</h3>
         </div>
         <div className="card__info">
           <input
             className="card__input"
             type="number"
             name={currency[0]}
-            onChange={calculateRate}
+            onChange={(e) => changeFunction(e)}
             value={value}
           />
           <h3>{`${currency[0]} - ${currency[1]}`}</h3>
