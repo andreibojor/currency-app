@@ -3,6 +3,8 @@ import { CardsContext } from "../../Context/CardsContext";
 import "./styles/card.css";
 import getSymbolFromCurrency from "currency-symbol-map";
 import CurrencyFlag from "react-currency-flags";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function Card({
   onClick,
@@ -25,7 +27,7 @@ function Card({
   return (
     <div className="card-container">
       <div className="card__nav" onClick={() => removeCard(currency)}>
-        X
+        <FontAwesomeIcon icon={faTimes} />
       </div>
       <div
         className={currency[0] === baseCurrency ? "card base-currency" : "card"}

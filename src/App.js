@@ -5,7 +5,6 @@ import { CardsContext } from "./Context/CardsContext";
 
 function App() {
   const { cards, baseCurrency, rates } = useContext(CardsContext);
-
   const [value, setValue] = useState([]);
 
   function calculateRate(e) {

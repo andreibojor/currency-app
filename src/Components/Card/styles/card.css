@@ -29,6 +29,7 @@
 }
 
 .card__currency {
+  margin-top: 8px;
   margin-right: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,10 +37,6 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-}
-
-.card__currency img {
-  max-width: 60px;
 }
 
 .card__symbol {
@@ -52,7 +49,7 @@
 }
 
 .card__symbol h3 {
-  margin: 8px 5px;
+  margin: 12px 5px;
 }
 
 .card__info {
@@ -60,7 +57,7 @@
 }
 
 .card__input {
-  padding: 4px 0;
+  padding: 4px 2px;
 }
 
 .card__input::-webkit-outer-spin-button, .card__input::-webkit-inner-spin-button {

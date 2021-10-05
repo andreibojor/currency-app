@@ -1,17 +1,23 @@
 .currency-list-container {
   width: 350px;
   max-height: 500px;
-  position: absolute;
+  position: fixed;
   top: 100px;
   left: 50%;
-  -webkit-transform: translateX(-163px);
-          transform: translateX(-163px);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   overflow: scroll;
   overflow-x: hidden;
   background: white;
   border-radius: 0.625rem;
   -webkit-box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);
           box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 480px) {
+  .currency-list-container .currency-list-container {
+    margin: 0 auto;
+  }
 }
 
 .currency-list-container::-webkit-scrollbar-track {
@@ -57,13 +63,13 @@
 
 .btn {
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   right: 50%;
-  padding: 15px 40px;
-  border-radius: 0.625rem;
   -webkit-transform: translateX(88px);
           transform: translateX(88px);
+  padding: 15px 40px;
+  border-radius: 0.625rem;
   cursor: pointer;
   -webkit-box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);
           box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);

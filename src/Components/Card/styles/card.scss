@@ -23,13 +23,10 @@
   box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);
 
   &__currency {
+    margin-top: 8px;
     margin-right: 5px;
     display: flex;
     align-items: flex-start;
-
-    img {
-      max-width: 60px;
-    }
   }
 
   &__symbol {
@@ -37,7 +34,7 @@
     align-items: flex-start;
 
     h3 {
-      margin: 8px 5px;
+      margin: 12px 5px;
     }
   }
 
@@ -46,7 +43,7 @@
   }
 
   &__input {
-    padding: 4px 0;
+    padding: 4px 2px;
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;

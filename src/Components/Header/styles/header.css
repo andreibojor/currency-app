@@ -1,4 +1,12 @@
 header {
   text-align: center;
 }
+
+header h1 {
+  margin: 0.75rem;
+}
+
+header h1:last-child {
+  margin-bottom: 1.5rem;
+}
 /*# sourceMappingURL=header.css.map */

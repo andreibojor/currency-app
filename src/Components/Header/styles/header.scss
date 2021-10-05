@@ -1,3 +1,11 @@
 header {
   text-align: center;
+
+  h1 {
+    margin: 0.75rem;
+
+    &:last-child {
+      margin-bottom: 1.5rem;
+    }
+  }
 }
