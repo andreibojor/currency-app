@@ -26,7 +26,7 @@ function App() {
               fromCurrency={baseCurrency}
               rate={rates[item[0]]}
               changeFunction={calculateRate}
-              value={value * rates[item[0]]}
+              value={Math.round(value * rates[item[0]] * 1000) / 1000}
             />
           ))
         ) : (
