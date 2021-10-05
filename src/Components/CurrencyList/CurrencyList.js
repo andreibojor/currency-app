@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { CardsContext } from "../../Context/CardsContext";
 import "./styles/currencyList.css";
+// import "currency-symbol-map";
 
 function CurrencyList() {
   const { allCurrencies, cards, addCard } = useContext(CardsContext);
@@ -19,7 +20,7 @@ function CurrencyList() {
             if (alreadyAdded) {
               return (
                 <div className="currency-card added" key={item[0]}>
-                  <img src="./American.png" alt="Currency" />
+                  <img src="" alt="Currency" />
                   <h3>
                     {item[0]} - {item[1]}
                   </h3>
@@ -32,7 +33,7 @@ function CurrencyList() {
                   key={item[0]}
                   onClick={() => addCard(item)}
                 >
-                  <img src="./American.png" alt="Currency" />
+                  <img src={`src/flags/${item[0]}.png`} alt="Currency" />
                   <h3>
                     {item[0]} - {item[1]}
                   </h3>

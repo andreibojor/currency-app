@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { CardsContext } from "../../Context/CardsContext";
 import "./styles/card.css";
+import getSymbolFromCurrency from "currency-symbol-map";
+// import "currency-flags";
+import "currency-symbol-map";
 
 function Card({
   onClick,
@@ -9,6 +12,7 @@ function Card({
   rate,
   changeFunction,
   value,
+  flag,
 }) {
   const { setCards, baseCurrency } = useContext(CardsContext);
 
@@ -26,10 +30,11 @@ function Card({
         onClick={onClick}
       >
         <div className="card__currency">
-          <img src="./American.png" alt="Currency" />
+          <div className="currency-flag currency-flag-usd"></div>
+          <img src={`src/flags/${currency[0]}.png`} alt="Currency" />
         </div>
         <div className="card__symbol">
-          <h3>??</h3>
+          <h3>{getSymbolFromCurrency(currency[0])}</h3>
         </div>
         <div className="card__info">
           <input
@@ -37,7 +42,7 @@ function Card({
             type="number"
             name={currency[0]}
             onChange={(e) => changeFunction(e)}
-            value={value}
+            value={value || ""}
           />
           <h3>{`${currency[0]} - ${currency[1]}`}</h3>
           <p>

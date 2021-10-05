@@ -6,6 +6,7 @@ function ContextProvider({ children }) {
   const [cards, setCards] = useState([]);
   const [allCurrencies, setAllCurrencies] = useState([]);
   const [baseCurrency, setBaseCurrency] = useState("EUR");
+  const [rates, setRates] = useState([]);
 
   // get all currencies
   useEffect(() => {
@@ -15,6 +16,7 @@ function ContextProvider({ children }) {
       try {
         const response = await fetch(url);
         const json = await response.json();
+        // console.log(json);
         setAllCurrencies(json.symbols);
       } catch (error) {
         console.log("error", error);
@@ -23,6 +25,23 @@ function ContextProvider({ children }) {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const url = `http://api.exchangeratesapi.io/v1/latest?access_key=ec7c12ccdfee679ebb35f7f4681c64dc&base=${baseCurrency}`;
+
+    const fetchBase = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setRates(json.rates);
+        console.log(rates);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchBase();
+  }, [baseCurrency]);
 
   // After the currencies are fetched, we select a few currencies as default cards
   useEffect(() => {
@@ -40,17 +59,17 @@ function ContextProvider({ children }) {
           setCards((prevItems) => [...prevItems, item]);
         }
 
-        if (item[0] === "GBP") {
+        if (item[0] === "INR") {
           setCards((prevItems) => [...prevItems, item]);
         }
 
-        if (item[0] === "JPY") {
-          setCards((prevItems) => [...prevItems, item]);
-        }
+        // if (item[0] === "JPY") {
+        //   setCards((prevItems) => [...prevItems, item]);
+        // }
 
-        if (item[0] === "AUD") {
-          setCards((prevItems) => [...prevItems, item]);
-        }
+        // if (item[0] === "AUD") {
+        //   setCards((prevItems) => [...prevItems, item]);
+        // }
       });
       return cards;
     }
@@ -76,6 +95,7 @@ function ContextProvider({ children }) {
         setBaseCurrency,
         addCard,
         removeCard,
+        rates,
       }}
     >
       {children}
