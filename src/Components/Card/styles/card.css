@@ -3,7 +3,13 @@
   position: relative;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
+  .card-container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 540px) {
   .card-container {
     width: 100%;
   }
