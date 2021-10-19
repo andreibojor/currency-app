@@ -8,7 +8,7 @@ function App() {
   const [value, setValue] = useState([]);
 
   function calculateRate(e) {
-    setValue(e.target.value);
+    e.target.name === "EUR" && setValue(e.target.value);
   }
 
   return (
@@ -16,7 +16,7 @@ function App() {
       <Header />
 
       <div className="cards-container">
-        {cards ? (
+        {cards &&
           cards.map((item) => (
             <Card
               key={item[0]}
@@ -27,10 +27,7 @@ function App() {
               changeFunction={calculateRate}
               value={Math.round(value * rates[item[0]] * 1000) / 1000}
             />
-          ))
-        ) : (
-          <></>
-        )}
+          ))}
       </div>
       <CurrencyList />
     </div>

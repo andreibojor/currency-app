@@ -32,6 +32,7 @@
   margin: 5px 10px;
   -webkit-box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);
           box-shadow: 5px 3px 20px -4px rgba(0, 0, 0, 0.25);
+  height: 135px;
 }
 
 .card__currency {
@@ -64,11 +65,20 @@
 
 .card__input {
   padding: 4px 2px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  width: 200px;
+  border-radius: 3px;
 }
 
 .card__input::-webkit-outer-spin-button, .card__input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+@media (max-width: 540px) {
+  .card {
+    margin: 5px 0;
+  }
 }
 
 .base-currency {

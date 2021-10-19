@@ -20,10 +20,6 @@ function Card({
     setCards((prevItems) => prevItems.filter((item) => item[0] !== curr[0]));
   }
 
-  const CurrencyFlagComponent1 = () => (
-    <CurrencyFlag currency="USD" size="sm" />
-  );
-
   return (
     <div className="card-container">
       <div className="card__nav" onClick={() => removeCard(currency)}>

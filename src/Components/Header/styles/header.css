@@ -2,11 +2,13 @@ header {
   text-align: center;
 }
 
-header h1 {
-  margin: 0.75rem;
+header .header-title {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
 }
 
-header h1:last-child {
+header .header-date {
+  margin-top: 0.5rem;
   margin-bottom: 1.5rem;
 }
 /*# sourceMappingURL=header.css.map */

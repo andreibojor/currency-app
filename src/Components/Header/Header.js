@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/header.css";
 
 function Header() {
-  function getDate() {
+  const todaysDate = () => {
     const today = new Date();
 
     const date = `${
@@ -10,11 +10,12 @@ function Header() {
     }/${today.getDate()}/${today.getFullYear()}`;
 
     return date;
-  }
+  };
+
   return (
     <header>
-      <h1>Currency Cards</h1>
-      <h1>{getDate()}</h1>
+      <h1 className="header-title">Curr€ncy Cards</h1>
+      <h1 className="header-date">{todaysDate()}</h1>
     </header>
   );
 }

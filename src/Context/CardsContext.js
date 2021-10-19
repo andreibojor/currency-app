@@ -7,6 +7,11 @@ function ContextProvider({ children }) {
   const [allCurrencies, setAllCurrencies] = useState([]);
   const [baseCurrency, setBaseCurrency] = useState("EUR");
   const [rates, setRates] = useState([]);
+  const defaultCurrencies = ["EUR", "USD", "GBP", "INR"];
+
+  // const { data: allCurrency, isLoading } = useFetch(
+  //   `http://api.exchangeratesapi.io/v1/symbols?access_key=ec7c12ccdfee679ebb35f7f4681c64dc`
+  // );
 
   // get all currencies
   useEffect(() => {
@@ -34,7 +39,6 @@ function ContextProvider({ children }) {
         const response = await fetch(url);
         const json = await response.json();
         setRates(json.rates);
-        console.log(rates);
       } catch (error) {
         console.log("error", error);
       }
@@ -43,37 +47,14 @@ function ContextProvider({ children }) {
     fetchBase();
   }, [baseCurrency]);
 
-  // After the currencies are fetched, we select a few currencies as default cards
+  // // After the currencies are fetched, we select a few currencies as default cards
+
   useEffect(() => {
-    function addDefaultCards() {
-      Object.entries(allCurrencies).map((item) => {
-        if (item[0] === "EUR") {
-          setCards((prevItems) => [...prevItems, item]);
-        }
-
-        if (item[0] === "USD") {
-          setCards((prevItems) => [...prevItems, item]);
-        }
-
-        if (item[0] === "RUB") {
-          setCards((prevItems) => [...prevItems, item]);
-        }
-
-        if (item[0] === "INR") {
-          setCards((prevItems) => [...prevItems, item]);
-        }
-
-        // if (item[0] === "JPY") {
-        //   setCards((prevItems) => [...prevItems, item]);
-        // }
-
-        // if (item[0] === "AUD") {
-        //   setCards((prevItems) => [...prevItems, item]);
-        // }
-      });
-      return cards;
-    }
-    addDefaultCards();
+    Object.entries(allCurrencies).forEach((entry) => {
+      if (defaultCurrencies.includes(entry[0])) {
+        setCards((prevItems) => [...prevItems, entry]);
+      }
+    });
   }, [allCurrencies]);
 
   function addCard(currency) {
@@ -88,7 +69,6 @@ function ContextProvider({ children }) {
     <CardsContext.Provider
       value={{
         allCurrencies,
-        setAllCurrencies,
         cards,
         setCards,
         baseCurrency,
